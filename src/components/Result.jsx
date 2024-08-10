@@ -42,7 +42,7 @@ function Result({
       <h2>Speed</h2>
       <h3>{speedCal}Wpm</h3>
       <h2>Time</h2>
-      <h3>{parseInt(time/1000)}</h3>
+      <h3>{parseInt(time/1000)}s</h3>
     </div>
   )
 }

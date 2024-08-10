@@ -66,8 +66,8 @@ function App() {
 
     if (isActive && isPaused === false) {
       intervalRef.current = setInterval(() => {
-        setTime((mytime) => mytime + 1);
-      }, 1);
+        setTime((mytime) => mytime + 10);
+      }, 10);
 
     } else if (intervalRef.current) {
       clearInterval(intervalRef.current);
@@ -82,7 +82,7 @@ function App() {
 
   useEffect(() => {
 
-    if (time / 1000 > 30 && intervalRef.current) {
+    if (time / 1000 > 20 && intervalRef.current) {
       handleReset();
     }
 
@@ -92,7 +92,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/dashboard" element={<Dashboard serPressedChar={serPressedChar} pressedChar={pressedChar} input={myinput} myinput2={myinput2} time={time} sentence={sentence} intervalRef={intervalRef} writtenS={writtenS} />} />
+          <Route path="/" element={<Dashboard serPressedChar={serPressedChar} pressedChar={pressedChar} input={myinput} myinput2={myinput2} time={time} sentence={sentence} intervalRef={intervalRef} writtenS={writtenS} />} />
           <Route path="/result" element={<Result myinput={myinput} writtenS={writtenS} time={time} myinput2={myinput2} sentence={sentence} />} />
         </Routes>
       </BrowserRouter>

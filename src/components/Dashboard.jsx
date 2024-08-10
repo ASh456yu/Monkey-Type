@@ -11,7 +11,7 @@ function Dashboard({
 
     useEffect(() => {
 
-        if (time / 1000 > 30) {
+        if (time / 1000 > 20) {
             navigate("/result")
         }
     }, [time]);
