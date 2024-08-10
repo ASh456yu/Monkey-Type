@@ -28,7 +28,7 @@ justify-content: center;
 }
 
 .correct{
-  color: green;
+  color: rgb(115, 255, 0);
   font-weight: bold;
 }
 
@@ -45,4 +45,11 @@ justify-content: center;
   to{
     border-left: 3px solid rgb(88, 86, 86);
   }
+}
+
+.timer{
+  width: 60px;
+  height: 30px;
+  border-radius: 10px;
+  background-color: rgb(225, 225, 74);
 }

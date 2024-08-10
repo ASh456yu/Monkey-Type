@@ -5,12 +5,18 @@ function Dashboard({
     input,
     time,
     writtenS,
+    timer,
+    setTimer
 }) {
 
+
+    const handleTimer = (times) => {
+        setTimer(times)
+    }
     const navigate = useNavigate()
     useEffect(() => {
 
-        if (time / 1000 > 20) {
+        if (time / 1000 > timer) {
 
             navigate("/result")
         }
@@ -21,7 +27,13 @@ function Dashboard({
         <>
             <div className="sample-sentence">
 
-                <div >{parseInt(time / 1000)}</div>
+                <div >{timer - parseInt(time / 1000)}</div>
+                <div className='timer-control'>
+                    <button className='timer' onClick={() => handleTimer(15)}>15s</button>
+                    <button className='timer' onClick={() => handleTimer(20)}>20s</button>
+                    <button className='timer' onClick={() => handleTimer(25)}>25s</button>
+                    <button className='timer' onClick={() => handleTimer(30)}>30s</button>
+                </div>
                 <div className="all-inputs">
                     <div className='inputs' id='abovediv'>
                         {writtenS.length > 0 ? writtenS.map((character, index) => {
@@ -35,7 +47,7 @@ function Dashboard({
                                 )
                             } else {
                                 return (
-                                    <p key={index} className='letters' style={index==input.length? {borderLeft: "1px solid black", animation: "blinking 1s infinite", animationFillMode: 'both', animationTimingFunction: "ease-in-out"}: {}}>{character}</p>
+                                    <p key={index} className='letters' style={index == input.length ? { borderLeft: "1px solid black", animation: "blinking 1s infinite", animationFillMode: 'both', animationTimingFunction: "ease-in-out" } : {}}>{character}</p>
                                 )
                             }
 

@@ -16,7 +16,7 @@ function App() {
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
   const [time, setTime] = useState(0);
-
+  const [timer,setTimer] = useState(15)
   const intervalRef = useRef(null);
   const [pressedChar, serPressedChar] = useState("")
 
@@ -82,7 +82,7 @@ function App() {
 
   useEffect(() => {
 
-    if (time / 1000 > 20 && intervalRef.current) {
+    if (time / 1000 > timer && intervalRef.current) {
       handleReset();
     }
 
@@ -92,7 +92,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Dashboard serPressedChar={serPressedChar} pressedChar={pressedChar} input={myinput} myinput2={myinput2} time={time} sentence={sentence} intervalRef={intervalRef} writtenS={writtenS} />} />
+          <Route path="/" element={<Dashboard serPressedChar={serPressedChar} pressedChar={pressedChar} input={myinput} myinput2={myinput2} time={time} sentence={sentence} intervalRef={intervalRef} writtenS={writtenS} timer={timer} setTimer={setTimer}/>} />
           <Route path="/result" element={<Result myinput={myinput} writtenS={writtenS} time={time} myinput2={myinput2} sentence={sentence} />} />
         </Routes>
       </BrowserRouter>

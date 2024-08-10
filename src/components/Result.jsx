@@ -43,7 +43,7 @@ function Result({
     }
   }, [myinput, writtenS])
   return (
-    <div>
+    <div className='sample-sentence'>
       <h2>Accuracy</h2>
       <h3>{accurate}%</h3>
       <h2>Speed</h2>
