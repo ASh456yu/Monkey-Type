@@ -1,0 +1,46 @@
+
+
+
+.sample-sentence{
+font-size: 30px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+
+.inputs{
+  width: 1000px;
+  height: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+
+.letters{
+  display: inline-block;
+  opacity: 1;
+  white-space: pre;
+  color: gray;
+}
+
+.correct{
+  color: green;
+  font-weight: bold;
+}
+
+.incorrect{
+  color: red;
+}
+
+
+
+@keyframes blinking {
+  from{
+    border-left: 3px solid black;
+  }
+  to{
+    border-left: 3px solid white;
+  }
+}
