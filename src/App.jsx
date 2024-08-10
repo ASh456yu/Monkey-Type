@@ -19,7 +19,7 @@ function App() {
 
   const intervalRef = useRef(null);
   const [pressedChar, serPressedChar] = useState("")
-  
+
 
 
 
@@ -45,7 +45,7 @@ function App() {
       if (/^[a-zA-Z]$/.test(pressed) || e.code === 'Space') {
         setInput((prev) => [...prev, pressed]);
       } else if (pressed === 'Backspace') {
-        setInput((prev) => prev.slice(0,-1));
+        setInput((prev) => prev.slice(0, -1));
       }
     };
 

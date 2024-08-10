@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+
+
 
 function Result({
   myinput,
   writtenS,
   time,
-  sentence,
   myinput2
 }) {
 
+  const navigate = useNavigate()
 
   const [accurate, setAccurate] = useState(0)
   const [speedCal, setSpeedCal] = useState(0)
@@ -33,7 +36,11 @@ function Result({
 
 
   useEffect(() => {
+
     res()
+    if (time == 0) {
+      navigate("/")
+    }
   }, [myinput, writtenS])
   return (
     <div>
@@ -42,7 +49,7 @@ function Result({
       <h2>Speed</h2>
       <h3>{speedCal}Wpm</h3>
       <h2>Time</h2>
-      <h3>{parseInt(time/1000)}s</h3>
+      <h3>{parseInt(time / 1000)}s</h3>
     </div>
   )
 }

@@ -8,10 +8,10 @@ function Dashboard({
 }) {
 
     const navigate = useNavigate()
-
     useEffect(() => {
 
         if (time / 1000 > 20) {
+
             navigate("/result")
         }
     }, [time]);
