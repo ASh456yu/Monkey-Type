@@ -6,7 +6,10 @@ function Dashboard({
     time,
     writtenS,
     timer,
-    setTimer
+    setTimer,
+    removePunctuation,
+    actualSent,
+    removeNumber
 }) {
 
 
@@ -20,7 +23,7 @@ function Dashboard({
 
             navigate("/result")
         }
-    }, [time]);
+    }, [time,writtenS]);
 
 
     return (
@@ -33,6 +36,11 @@ function Dashboard({
                     <button className='timer' onClick={() => handleTimer(20)}>20s</button>
                     <button className='timer' onClick={() => handleTimer(25)}>25s</button>
                     <button className='timer' onClick={() => handleTimer(30)}>30s</button>
+                </div>
+                <div className='sentence-control'>
+                    <button className='sentence' onClick={removePunctuation}>No Punc</button>
+                    <button className='sentence' onClick={actualSent}>Actual</button>
+                    <button className='sentence' onClick={removeNumber}>No Num</button>
                 </div>
                 <div className="all-inputs">
                     <div className='inputs' id='abovediv'>

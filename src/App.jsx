@@ -7,8 +7,8 @@ import { useRef } from 'react'
 
 
 function App() {
-
-  const sentence = "suscipit assumenda perspiciatis dolorem adipisci voluptates qui ducimus impedit magnam velit commodi explicabo distinctio aspernatur dolore? Dolorem laudantium porro, ipsum ad esse hic libero earum eveniet quidem. Reiciendis facilis quasi necessitatibus porro, inventore cupiditate? Nihil aspernatur eos consectetur fuga esse adipisci illo"
+  const actualSentence = "The solar system $% is made up *& of the sun eight planets 0989 and various othe98r celestial objects )( )like moons asteroids =+ and comets. The s43run is at the center of the solar system providing heat %^083 and light to all the planets. The eight plan35ets in our%^ solar system are Me4rcury Venus[] Earth Mars Jupiter Saturn Uranus&^% and Neptune"
+  const [sentence, setSentence] = useState("The solar system $% is made up *& of the sun eight planets 0989 and various othe98r celestial objects )( )like moons asteroids =+ and comets. The s43run is at the center of the solar system providing heat %^083 and light to all the planets. The eight plan35ets in our%^ solar system are Me4rcury Venus[] Earth Mars Jupiter Saturn Uranus&^% and Neptune")
   const [writtenS, setWrittenS] = useState([])
   const [myinput, setInput] = useState([])
   const [myinput2, setInput2] = useState("")
@@ -16,12 +16,29 @@ function App() {
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
   const [time, setTime] = useState(0);
-  const [timer,setTimer] = useState(15)
+  const [timer, setTimer] = useState(15)
   const intervalRef = useRef(null);
-  const [pressedChar, serPressedChar] = useState("")
 
 
+  const removePunctuation = () => {
+    let withoutPunc = actualSentence.replace(/[^\w\s]|_/g, "")
+    setSentence(withoutPunc)
+    let arrays = [...sentence]
+    setWrittenS(arrays)
+  }
 
+  const actualSent = () => {
+    setSentence(actualSentence)
+    let arrays = [...sentence]
+    setWrittenS(arrays)
+  }
+
+  const removeNumber = () => {
+    let withoutNumber = actualSentence.replace(/\d+/g, "")
+    setSentence(withoutNumber)
+    let arrays = [...sentence]
+    setWrittenS(arrays)
+  }
 
   const handleReset = () => {
     setIsActive(false);
@@ -92,7 +109,17 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Dashboard serPressedChar={serPressedChar} pressedChar={pressedChar} input={myinput} myinput2={myinput2} time={time} sentence={sentence} intervalRef={intervalRef} writtenS={writtenS} timer={timer} setTimer={setTimer}/>} />
+          <Route path="/" element={<Dashboard
+            input={myinput}
+            time={time}
+            writtenS={writtenS}
+            timer={timer}
+            setTimer={setTimer}
+            removePunctuation={removePunctuation}
+            actualSent={actualSent}
+            removeNumber={removeNumber}
+          />}
+          />
           <Route path="/result" element={<Result myinput={myinput} writtenS={writtenS} time={time} myinput2={myinput2} sentence={sentence} />} />
         </Routes>
       </BrowserRouter>
